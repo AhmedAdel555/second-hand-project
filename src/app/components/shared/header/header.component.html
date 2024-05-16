@@ -1,0 +1,55 @@
+<mat-toolbar class="navbar">
+  2ndHand
+  <div class="admin-links-container">
+  <form class="d-flex" role="search" id="search-area" (ngSubmit)="search(input.value)">
+    <input #input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline" id="search-button" type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>
+
+  <ng-container *ngIf="user$ | async as user; else loginButton" >
+    <div class="d-flex justify-content-around">
+      <ul class="navbar-nav ml-1">
+        <li class="nav-item">
+            <a class="nav-link" href="#"><mat-icon>notifications</mat-icon></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/chats"><mat-icon>mail</mat-icon></a>
+        </li>
+      </ul>
+      <button mat-button [matMenuTriggerFor]="userMenu" class="ml-1">
+        <mat-icon>account_circle</mat-icon>
+        {{ user.displayName }}
+        <mat-icon>expand_more</mat-icon>           
+      </button>
+      <button mat-button routerLink="/create" style="background-color: #055989; color: white;">Sell</button>
+    </div>
+  </ng-container>
+  
+  <ng-template #loginButton>
+    <button mat-button routerLink="login">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+  </ng-template>
+  
+</mat-toolbar>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>account_circle</mat-icon>
+    Profile
+  </button>
+  <button mat-menu-item routerLink="/wishlist">
+    <mat-icon>account_circle</mat-icon>
+    Wish List
+  </button>
+  <button mat-menu-item routerLink="/dashboard">
+    <mat-icon>account_circle</mat-icon>
+    Dashboard
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</mat-menu>

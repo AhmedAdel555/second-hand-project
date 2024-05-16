@@ -1,0 +1,79 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0faff; /* Light blue background */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Header */
+  header {
+    background-color: #007bff; /* Blue header */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  /* Form container */
+  .form-container {
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #007bff; /* Blue label */
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea.form-control {
+    resize: vertical; /* Allow vertical resizing of textarea */
+  }
+  
+  input[type="file"].form-control-file {
+    padding-top: 5px; /* Adjust vertical alignment */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+  

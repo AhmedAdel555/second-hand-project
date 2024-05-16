@@ -1,0 +1,102 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.containers{
+    width:90%;
+    margin: 0 auto;
+}
+.product-details{
+    position: relative;
+    z-index: 1;
+}
+.product-details-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem;
+}
+.selling-col-2{
+    width: 42%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.selling-col-3{
+    width: 42%;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 2.5rem;
+}
+.selling-img img{
+   width: 100%;
+   height: 100%;
+   transform: scale(1.2);
+}
+.selling-heading{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dbdbdb;
+}
+.selling-heading a{
+    color: #555;
+    font-size: 28px;
+    text-transform: capitalize;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+.selling-heading a:hover{
+    color: #055989;
+}
+.selling-col-3 p{
+    color: #777;
+    display: flex;
+    line-height: 22px;
+    margin: 22px;
+}
+.cart-btn{
+    background-color: #055989;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 14px;
+    text-transform: uppercase;
+    padding: 12px 34px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    transition: all .3s ease;
+}
+.cart-btn:hover{
+    background: #8abfde;
+}
+.cart-btn i{
+    margin-right: 4px;
+}
+.main-button{
+    border: none;
+    outline: none;
+    text-align: center;
+    background: #000;
+    padding: 11px 10px;
+    border-radius: 4px;
+}
+.main-button a{
+    background: #000;
+    padding: 11px 10px;
+    border-right: 1px solid  rgb(73, 73, 73);
+}
+.main-button a:last-child{
+    border-right: none;
+}
+.main-button a:hover{
+    background: #055989;
+}
+.main-button i{
+    color: #fff;
+}
+
+.heart-red {
+  color: red; /* or any color you want */
+}
+
+.heart-gray {
+  color: gray; /* or any color you want */
+}

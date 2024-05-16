@@ -1,0 +1,13 @@
+.main2 {
+  width: 50%;
+  height: 80px;
+  text-align: center;
+
+box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.377);
+border-radius: 20px;
+margin-top: 15px;
+ 
+}
+.main2 h1{
+  color: #193366;
+}

@@ -1,0 +1,15 @@
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 10px; /* Adjust spacing between items */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black; /* Adjust link color */
+}

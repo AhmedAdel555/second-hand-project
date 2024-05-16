@@ -1,0 +1,31 @@
+<section class="product-details">
+    <div class="container">
+        <div class="product-details-container">
+            <div class="selling-col-2">
+                <div class="selling-img">
+                    <img [src]="product?.imageUrl" alt="product">
+                </div>
+            </div>
+            <div class="selling-col-3">
+                <div class="selling-heading">
+                    <a href="javascript:void(0)">{{ product?.title }}</a>
+                </div>
+                <p>{{ product?.description }}</p>
+                <h3>
+                    <span class="selling-amount">{{ product?.price }}</span>
+                </h3>
+                <h3>
+                  <span class="selling-heading">{{ product?.status }}</span>
+                </h3>
+                <div class="selling-button">
+                    <a href="/chats" class="cart-btn"><i class="fa fa-comment-dots">chat with Seller</i></a>
+                    <span (click)="toggleWishlistIcon(product?.id)" >
+                      <i class="fa fa-heart fa-2x" 
+                      [ngClass]="{'heart-red': isInWishlist, 'heart-gray': !isInWishlist}"
+                      ></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

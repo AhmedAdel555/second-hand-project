@@ -1,0 +1,20 @@
+<div class="wishlist-container">
+  <h2 class="wishlist-header">My Wishlist</h2>
+
+  <mat-grid-list cols="3" gutterSize="10px">
+    <mat-grid-tile *ngFor="let item of wishlistItems">
+      <mat-card class="example-card">
+        <img mat-card-image [src]="item.imageUrl" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <h3>{{item.title}}</h3>
+          <p>{{item.description}}</p>
+          <span (click)="toggleWishlistIcon(item.id)">
+            <i class="fa fa-heart fa-2x" style="color: red;"></i>
+          </span>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <p *ngIf="wishlistItems.length === 0">No items in wishlist.</p>
+</div>

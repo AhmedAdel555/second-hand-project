@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>total number of products = {{userProducts.length}}</h1>
+      <h1>total number of products sold = {{numberOfItemSold}}</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of userProducts">
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <button type="button" class="btn btn-primary" [disabled]="product.status === 'sold'" (click)="makeProductSold(product.id)">{{ product.status }}</button>
+              <button type="button" class="btn btn-danger" (click)='deleteProduct(product.id)' style="margin-left: 5px;">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
