@@ -1,61 +1,58 @@
-<div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
-   <h1> User Profile</h1>
-   <div class="profile-image">
-    <img width="120" height="120" [src]="user.photoURL ?? 'assets/image-placeholder.png'"/>
-    <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
-    </button>
-   </div>
-   <input #inputField type="file" hidden (change)="uploadImage($event, user)">
-   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+<section class="bg-light">
+  <div class="container">
     <div class="row">
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="firstName"
-          placeholder="First Name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="lastName"
-          placeholder="Last Name"
-        />
-      </mat-form-field>
+      <div class="col-lg-12 mb-4 mb-sm-5">
+        <div class="card card-style1 border-0">
+          <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+            <div class="row align-items-center">
+              <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                <img src="{{profileUser?.photoURL}}" alt="Profile Picture" class="circular-image">
+              </div>
+              <div class="col-lg-8 px-xl-10">
+                <h2 class="font-weight-600 mb-0" [style.fontSize.px]="32">{{profileUser?.displayName}}</h2>
+                <hr>
+                <div class="rating">
+                  <ng-container *ngFor="let i of stars">
+                   <mat-icon [ngClass]="{'active': i<= rating}">
+                     star
+                   </mat-icon>
+                  </ng-container>
+                </div>
+                <hr>
+                <ul class="list-unstyled mb-1-9">
+                  <li class="display-28 mb-2" [style.fontSize.px]="18"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> {{profileUser?.phone}}</li>
+                  <li class="mb-2 mb-xl-3 display-28" [style.fontSize.px]="18"><span class="display-26 text-secondary me-2 font-weight-600">Address:</span> {{profileUser?.address}}</li>
+                </ul>
+                <div>
+                  <button type="button" class="btn btn-primary mt-3 me-3" routerLink="/chats">Chat with {{profileUser?.displayName}}</button>
+                  <button type="button" class="btn btn-primary custom-feedback-button mt-3" routerLink="/rating/{{profileUser?.uid}}">Feedback the user</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wishlist-container">
+        <h2 class="wishlist-header">Products</h2>
+        <mat-grid-list cols="3" gutterSize="10px">
+          <mat-grid-tile *ngFor="let item of userProducts">
+            <a href= "/products/{{item.id}}">
+              <mat-card class="example-card">
+                <img mat-card-image [src]="item.imageUrl" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <h3>{{item.title}}</h3>
+                  <p>{{item.description}}</p>
+                  <span>{{item.status}}</span>
+                  <br>
+                  <span>$ {{item.price}}</span>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+      
+        <p *ngIf="userProducts.length === 0">No items in wishlist.</p>
+      </div>
     </div>
-
-    <div class="row">
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="displayName"
-          placeholder="Display Name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="number"
-          matInput
-          formControlName="phone"
-          placeholder="Phone"
-        />
-      </mat-form-field>
-    </div>
-    <mat-form-field>
-      <input
-        type="text"
-        matInput
-        formControlName="address"
-        placeholder="Address"
-      />
-    </mat-form-field>
-
-    <button type="submit" class="margin-top" mat-raised-button color="primary">
-      Save
-    </button>
-  </form>  
-</div>
+  </div>
+</section>

@@ -12,6 +12,8 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AccountComponent } from './components/account/account.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo([''])
@@ -42,8 +44,8 @@ const routes: Routes = [
         ...canActivate(redirectToLogin)
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'account',
+        component: AccountComponent,
         ...canActivate(redirectToLogin)
       },
       {
@@ -66,6 +68,16 @@ const routes: Routes = [
         component: DashboardComponent,
         ...canActivate(redirectToLogin)
       },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        ...canActivate(redirectToLogin)
+      },
+      {
+        path: 'rating/:id',
+        component: RatingComponent,
+        ...canActivate(redirectToLogin)
+      }
     ]
   },
   {

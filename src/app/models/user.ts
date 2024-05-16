@@ -8,4 +8,12 @@ export interface User {
   phone?: string;
   address?: string;
   likedProductsIds?: string[];
+  ratingsFeedbacks?: RatingFeedback[];
+  rate?: number; 
+}
+
+export interface RatingFeedback {
+  rating: number;
+  feedback: string;
+  ratedBy: string;
 }

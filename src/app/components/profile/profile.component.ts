@@ -1,79 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
-import { ImageUploadService } from '../../services/image-upload.service';
-import { HotToastService } from '@ngneat/hot-toast';
-import { concatMap } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { User } from '../../models/user';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/products';
 
 @UntilDestroy()
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css'], // Corrected 'styleUrl' to 'styleUrls'
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
 
-  user$ =this.usersServices.currentUserProfile$
+  profileUser: User | undefined;
 
-  profileForm = new FormGroup({
-    uid: new FormControl(''),
-    email: new FormControl(''),
-    displayName: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    phone: new FormControl(''),
-    address: new FormControl('')
-  });
-  
-  constructor(private authService : AuthenticationService ,private toast: HotToastService, private imageUploadService : ImageUploadService, private usersServices: UsersService){}
+  userProducts: Product[] = [];
 
-   ngOnInit(): void {
-    this.usersServices.currentUserProfile$.pipe(
-      untilDestroyed(this)
-    ).subscribe((user) => {
-      this.profileForm.patchValue({ ...user });
-    })
-   }
+  stars = [1,2,3,4,5]
 
-   uploadImage(event: any , user: User){
-    this.imageUploadService.uploadImage(event.target.files[0], `images/profile/${user.uid}`).pipe(
-      this.toast.observe(
-        {
-          loading: 'Image is being uploaded ...',
-          success: 'Image uploaded!',
-          error: 'There was an error in uploading'
-        }
-      ),
-      concatMap((photoURL) => this.usersServices.updateUser({
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: photoURL
-      }))
-    ).subscribe();
-   }
-   saveProfile(){
-    const profileData = this.profileForm.value;
-    const userData: User = {
-      uid: profileData.uid || '', // Assuming uid cannot be null or undefined
-      email: profileData.uid || '', // Assuming uid cannot be null or undefined
-      displayName: profileData.displayName || '', // Assuming displayName cannot be null or undefined
-      firstName: profileData.firstName || '', // Assuming firstName cannot be null or undefined
-      lastName: profileData.lastName || '', // Assuming lastName cannot be null or undefined
-      phone: profileData.phone || '', // Assuming phone cannot be null or undefined
-      address: profileData.address || '', // Assuming address cannot be null or undefined
-  };
+  rating: number = 0;
 
-    this.usersServices.updateUser(userData).pipe(
-      this.toast.observe({
-       loading: 'Updating Data...',
-       success: 'Data has been updated',
-       error: 'There was an error in updating the profile'
-      })
-        ).subscribe();
-    
-   }
+  constructor(
+    private router: Router,
+    private userService: UsersService,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const userId = params.get('id');
+      if (userId) {
+        this.userService.getUserById(userId).pipe(untilDestroyed(this)).subscribe((user) => {
+          if (user) {
+            this.profileUser = user;
+            this.rating = user.rate ? user.rate : 0 ;
+            console.log(user.rate);
+            this.productService.getProductsBySellerId(userId)
+            .subscribe((products) => {
+              this.userProducts = products;
+            })
+          } else {
+            this.router.navigate(['']);
+          }
+        });
+      } else {
+        this.router.navigate(['']);
+      }
+    });
+  }
 }

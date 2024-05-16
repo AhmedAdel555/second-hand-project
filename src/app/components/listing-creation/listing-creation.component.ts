@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ImageUploadService } from '../../services/image-upload.service';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../models/products';
+import { cateoryType, Product } from '../../models/products';
 
 @Component({
   selector: 'app-listing-creation',
@@ -15,8 +15,8 @@ export class ListingCreationComponent {
   price: number = 0;
   image!: File;
   imageUrl: string = '';
-  category: string = ''; // Define a property for category
-  categories: string[] = ['Electronics', 'Clothing', 'Books', 'Furniture']; // Example categories
+  category: cateoryType = 'Electronics'; // Define a property for category
+  categories: cateoryType[] = ['Electronics', 'Clothing', 'Books', 'Furniture']; // Example categories
 
   constructor(
     private authService: AuthenticationService,

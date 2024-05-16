@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>total number of products = {{userProducts.length}}</h1>
-      <h1>total number of products sold = {{numberOfItemSold}}</h1>
+      <div class="items">
+        <div class="container1">
+          <p class="font">Number of listings</p>
+          <p class="font">{{userProducts.length}}</p>
+        </div>
+        <div class="container1">
+            <p class="font">Number of Items Sold</p>
+            <p class="font">{{numberOfItemSold}}</p>
+        </div>
+    </div>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -22,6 +30,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="chart-container">
+        <canvas  id="MyChart" >{{ chart }}</canvas>
+      </div>
     </div>
   </div>
 </div>

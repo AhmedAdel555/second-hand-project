@@ -11,3 +11,38 @@ h4 {
     vertical-align: middle;
   }
 }
+.items{
+  display: flex;
+  justify-content: space-between; /* Aligns items with space between them */
+  
+}
+.container1{
+  background-color: #F2F2F2;
+  height: 150px;
+  width: 379px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  align-items: center;
+}
+.font{
+  color: #055989;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 0px 0px 10px;
+}
+.pie-container{
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  background-color: #F2F2F2;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  align-items: center;
+}
+.pie-chart{
+ 
+margin:5px;
+}

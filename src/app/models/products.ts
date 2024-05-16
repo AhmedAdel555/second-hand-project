@@ -1,3 +1,4 @@
+export type cateoryType = "Electronics" | "Clothing" | "Books"| "Furniture"
 
 // product.interface.ts
 export interface Product {
@@ -6,7 +7,7 @@ export interface Product {
   description: string;
   price: number;
   imageUrl: string;
-  category: string;
+  category: cateoryType;
   sellerId: string;
   status: "sold" | "not sold";
 }

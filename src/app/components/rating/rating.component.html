@@ -1,0 +1,21 @@
+<div class="form-container mat-elevation-z5">
+  <h1>Rate and Feedback</h1>
+  <form (ngSubmit)="onSubmit()">
+     
+      <div class="rating">
+           <ng-container *ngFor="let i of stars">
+            <mat-icon (click)="updateRating(i)" [ngClass]="{'active': i<= rating}">
+              star
+            </mat-icon>
+           </ng-container>
+      </div>
+      <br>
+    
+      <label for="comment">Comment (Optional):</label>
+      <br>
+      <textarea id="comment" name="comment" [(ngModel)]="comment" rows="4" cols="50"></textarea>
+      <br>
+      <button type="submit">Submit Rating</button>
+  </form>
+    
+</div>

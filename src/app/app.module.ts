@@ -29,7 +29,6 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { ProductDetailsComponent} from './components/product/product.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
-// import { ChatComponent } from './components/chat/chat.component';
 import {MatCardModule} from '@angular/material/card';
 import { ProductsComponent } from './components/products/products.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -38,6 +37,9 @@ import { DateDisplayPipe } from './pips/date-display.pipe';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { AccountComponent } from './components/account/account.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     DateDisplayPipe,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AccountComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     MatCardModule, 
     MatButtonModule,
     MatGridListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatNativeDateModule,
   ],
   providers: [
     provideAnimationsAsync(),

@@ -1,26 +1,213 @@
-.profile-image > img {
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
+.card-style1 {
+  box-shadow: 0px 0px 10px 0px rgb(89 75 128 / 9%);
+}
+.border-0 {
+  border: 0!important;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+}
 
-  .profile-image {
-    position: relative;
-    width: 120px;
-    margin: auto;
-  }
+section {
+  padding: 120px 0;
+  overflow: hidden;
+  background: #fff;
+}
+.mb-2-3, .my-2-3 {
+  margin-bottom: 2.3rem;
+}
 
-  .profile-image > button {
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-  }
+.section-title {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+.text-primary {
+  color: #ceaa4d !important;
+}
+.text-secondary {
+  color: #15395A !important;
+}
+.font-weight-600 {
+  font-weight: 600;
+}
+.display-26 {
+  font-size: 1.3rem;
+}
 
-  .form-container {
-    max-width: 400px;
+@media screen and (min-width: 992px){
+  .p-lg-7 {
+      padding: 4rem;
   }
-  
-  .row {
-    display: flex;
-    gap: 16px;
+}
+@media screen and (min-width: 768px){
+  .p-md-6 {
+      padding: 3.5rem;
   }
+}
+@media screen and (min-width: 576px){
+  .p-sm-2-3 {
+      padding: 2.3rem;
+  }
+}
+.p-1-9 {
+  padding: 1.9rem;
+}
+
+.bg-secondary {
+  background: #15395A !important;
+}
+@media screen and (min-width: 576px){
+  .pe-sm-6, .px-sm-6 {
+      padding-right: 3.5rem;
+  }
+}
+@media screen and (min-width: 576px){
+  .ps-sm-6, .px-sm-6 {
+      padding-left: 3.5rem;
+  }
+}
+.pe-1-9, .px-1-9 {
+  padding-right: 1.9rem;
+}
+.ps-1-9, .px-1-9 {
+  padding-left: 1.9rem;
+}
+.pb-1-9, .py-1-9 {
+  padding-bottom: 1.9rem;
+}
+.pt-1-9, .py-1-9 {
+  padding-top: 1.9rem;
+}
+.mb-1-9, .my-1-9 {
+  margin-bottom: 1.9rem;
+}
+@media (min-width: 992px){
+  .d-lg-inline-block {
+      display: inline-block!important;
+  }
+}
+.rounded {
+  border-radius: 0.25rem!important;
+}
+
+.circular-image {
+  width: 100%;
+  max-width: 200px; /* Adjust as needed */
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+@media (min-width: 992px) {
+  .circular-image {
+    max-width: 150px; /* Adjust for larger screens if needed */
+  }
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.wishlist-container {
+  text-align: center;
+}
+
+.wishlist-header {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #055989;
+  font-size: 50px;
+}
+
+/* Hide button text */
+mat-card-actions button {
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 36px; /* Adjust width and height as needed */
+  height: 36px;
+}
+
+/* Center icon vertically */
+mat-card-actions button .material-icons {
+  vertical-align: middle;
+}
+
+mat-grid-tile{
+  padding: 30px;
+  margin: 30px;
+}
+
+mat-card{
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
+  width: 350px;
+  height: 420px;
+  padding: 30px;
+}
+
+mat-card img {
+  object-fit: fill;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+mat-card mat-card-content h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+mat-card mat-card-content p {
+  font-size: 1.4rem;
+}
+
+mat-card mat-card-content span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #055989;
+}
+
+mat-grid-tile a {
+  text-decoration: none;
+}
+
+.custom-feedback-button {
+  background-color: #ff6347; /* Custom background color (Tomato) */
+  border-color: #ff6347; /* Matching border color */
+  color: #fff; /* Text color */
+}
+
+.custom-feedback-button:hover {
+  background-color: #e5533d; /* Darker shade on hover */
+  border-color: #e5533d; /* Matching border color on hover */
+}
+
+.rating{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 50;
+}
+
+mat-icon {
+  color: #8080806b;
+}
+
+.active {
+  color: orange;
+}

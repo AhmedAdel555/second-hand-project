@@ -29,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@ngneat/hot-toast": "^7.0.0",
     "@ngneat/until-destroy": "^10.0.0",
+    "chart.js": "^4.4.2",
     "font-awesome": "^4.7.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
